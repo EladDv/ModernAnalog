@@ -1,0 +1,12 @@
+build/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.lock-waf_*
+.waf-*
+node_modules/
+.claude/
+.DS_Store
+src/c/mc.ffi.c
+.history/

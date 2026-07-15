@@ -1,0 +1,39 @@
+{
+  "include": [
+    "$(MODDABLE)/examples/manifest_mod.json"
+  ],
+  "modules": {
+    "*": "./main.js"
+  },
+  "ffi": {
+    "sources": [
+      "../c/health_bridge.c"
+    ],
+    "functions": {
+      "health_steps_today": {
+        "arguments": [],
+        "returns": "int32_t"
+      },
+      "health_heart_rate": {
+        "arguments": [],
+        "returns": "int32_t"
+      }
+    }
+  },
+  "resources": {
+    "*-alpha": [
+      {
+        "source": "./assets/fa-remapped",
+        "size": 18,
+        "monochrome": true,
+        "characters": "ABCEFHIJ"
+      },
+      {
+        "source": "./assets/mdi-pebble",
+        "size": 18,
+        "monochrome": true,
+        "characters": "AB"
+      }
+    ]
+  }
+}

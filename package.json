@@ -1,0 +1,71 @@
+{
+  "name": "modern-analog",
+  "description": "A customizable hybrid digital watchface for Pebble Time 2.",
+  "author": "EladDV",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "keywords": [
+    "pebble-app",
+    "pebble",
+    "watchface",
+    "emery",
+    "alloy"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "pebble build",
+    "build:icons": "python scripts/build-fa-font.py && python scripts/build-mdi-font.py",
+    "check": "node --check src/embeddedjs/main.js && node --check src/pkjs/settings.js && node --check src/pkjs/config.js && node --check src/pkjs/index.js && node --check test/settings.test.js",
+    "clean": "pebble clean",
+    "test": "node --test test/*.test.js",
+    "verify": "npm run check && npm test",
+    "release": "npm run verify && pebble clean && pebble build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "font-awesome": "^4.7.0"
+  },
+  "pebble": {
+    "displayName": "Modern Analog",
+    "uuid": "c145c802-7469-4ea9-ae04-b6721eec91ec",
+    "projectType": "moddable",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "capabilities": [
+      "configurable",
+      "health"
+    ],
+    "messageKeys": [
+      "PHONE_BATTERY",
+      "REQUEST_PHONE_DATA",
+      "WEATHER_TEMPERATURE",
+      "WEATHER_CONDITION",
+      "TOP_LEFT_TYPE",
+      "TOP_RIGHT_TYPE",
+      "BOTTOM_LEFT_TYPE",
+      "BOTTOM_RIGHT_TYPE",
+      "COLOR_BACKGROUND",
+      "COLOR_TEXT",
+      "COLOR_CLOCK",
+      "COLOR_MINUTE_PROGRESS",
+      "COLOR_TOP_LEFT",
+      "COLOR_TOP_RIGHT",
+      "COLOR_BOTTOM_LEFT",
+      "COLOR_BOTTOM_RIGHT",
+      "TEMPERATURE_UNIT",
+      "TIME_FORMAT"
+    ],
+    "resources": {
+      "media": []
+    }
+  }
+}
