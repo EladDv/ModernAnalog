@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - 2026-07-16
+
+- Fixed an Alloy fatal error caused by the watch-side JavaScript stack being
+  configured below Alloy's default capacity.
+- Restored enough XS stack space for Poco rendering and AppMessage callbacks.
+
 ## 1.0.0 - 2026-07-15
 
 - Initial Release

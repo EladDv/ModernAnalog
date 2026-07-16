@@ -6,10 +6,10 @@ int main(void) {
 
   ModdableCreationRecord creation = {
     .recordSize = sizeof(creation),
-    // The Pebble Alloy defaults are too tight for the face's fonts, settings,
-    // and live metrics. These explicit heaps still use less total RAM than the
-    // defaults did alongside maximum-size AppMessage buffers.
-    .stack = 1024,
+    // Match Alloy's 384-slot (6 KB) default stack. The previous 1 KB override
+    // left only 64 XS slots for the nested Poco render and AppMessage callbacks
+    // and could terminate the watchface with "JavaScript stack overflow".
+    .stack = 6144,
     .slot = 18432,
     .chunk = 24576,
 #ifdef PBL_DEBUG
