@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.3] - 2026-07-17
+
+### Fixed
+
+- Show the Bluetooth-disconnect indicator and vibrate when the Pebble mobile app connection drops.
+
 ## 1.0.2 - 2026-07-16
 
 - Fixed Alloy `memory full` crashes after store installation by restoring the

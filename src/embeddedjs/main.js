@@ -76,7 +76,7 @@ let lastDate = new Date();
 let drawPending = false;
 let phoneRequestSent = false;
 let settings = {};
-let phoneConnected = Boolean(watch.connected.pebblekit);
+let phoneConnected = Boolean(watch.connected.app);
 
 Object.keys(DEFAULT_SETTINGS).forEach(key => settings[key] = DEFAULT_SETTINGS[key]);
 const cachedWeather = loadJSON(WEATHER_STORAGE_KEY);
@@ -447,10 +447,10 @@ watch.addEventListener("minutechange", event => {
   draw(event);
 });
 watch.addEventListener("connected", () => {
-  const connected = Boolean(watch.connected.pebblekit);
+  const connected = Boolean(watch.connected.app);
   if (phoneConnected && !connected) Vibes.doublePulse();
   phoneConnected = connected;
-  draw();
+  requestDraw();
 });
 
 const message = new Message({
