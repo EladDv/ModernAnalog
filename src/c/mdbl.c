@@ -6,12 +6,9 @@ int main(void) {
 
   ModdableCreationRecord creation = {
     .recordSize = sizeof(creation),
-    // Match Alloy's 384-slot (6 KB) default stack. The previous 1 KB override
-    // left only 64 XS slots for the nested Poco render and AppMessage callbacks
-    // and could terminate the watchface with "JavaScript stack overflow".
-    .stack = 6144,
-    .slot = 18432,
-    .chunk = 24576,
+    // Keep Alloy's firmware-managed heaps so they can grow with rendering and
+    // companion callbacks. Fixed heap sizes disable that growth and can abort
+    // with "memory full" even while the app still has free RAM.
 #ifdef PBL_DEBUG
     .flags = kModdableCreationFlagDebug,
 #endif

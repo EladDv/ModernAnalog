@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 - 2026-07-16
+
+- Fixed Alloy `memory full` crashes after store installation by restoring the
+  firmware-managed XS heaps, allowing them to grow during rendering and
+  companion settings callbacks.
+
 ## 1.0.1 - 2026-07-16
 
 - Fixed an Alloy fatal error caused by the watch-side JavaScript stack being
